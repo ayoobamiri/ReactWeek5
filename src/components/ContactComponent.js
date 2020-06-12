@@ -69,7 +69,7 @@ class Contact extends Component {
                         <h5>Our Address</h5>
                         <address>
                             1 Nucamp Way<br />
-                        Seattle, WA 980010<br />
+                        Seattle, WA 98001.<br />
                         U.S.A.
                     </address>
                     </div>
