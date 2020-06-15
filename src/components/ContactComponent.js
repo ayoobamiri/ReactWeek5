@@ -36,19 +36,19 @@ class Contact extends Component {
                 lastName: false,
                 phoneNum: false,
                 email: false
-        
+
             }
         };
 
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        
+
     }
 
 
 
 
- 
+
 
 
 
@@ -101,11 +101,11 @@ class Contact extends Component {
                             <Row className="form-group">
                                 <Label htmlFor="firstName" md={2}>First Name</Label>
                                 <Col md={10}>
-                                <Control.text model=".firstName" id="firstName" name="firstName"
+                                    <Control.text model=".firstName" id="firstName" name="firstName"
                                         placeholder="First Name"
                                         className="form-control"
                                         validators={{
-                                            required, 
+                                            required,
                                             minLength: minLength(2),
                                             maxLength: maxLength(15)
                                         }}
@@ -199,6 +199,25 @@ class Contact extends Component {
                                     />
                                 </Col>
                             </Row>
+
+                            <Row className="form-group">
+                                <Label htmlFor="feedback" md={2}>Your Feedback</Label>
+                                <Col md={10}>
+                                    <Control.textarea model=".feedback" id="feedback" name="feedback"
+                                        rows="12"
+                                        className="form-control"
+                                    />
+                                </Col>
+                            </Row>
+
+                            <Row className="form-group">
+                                <Col md={{ size: 10, offset: 2 }}>
+                                    <Button type="submit" color="primary">
+                                        Send Feedback
+                                    </Button>
+                                </Col>
+                            </Row>
+
                         </LocalForm>
                     </div>
                 </div>
