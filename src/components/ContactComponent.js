@@ -8,11 +8,14 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 
 
 
+
 const required = val => val && val.length;
 const maxLength = len => val => !val || (val.length <= len);
 const minLength = len => val => val && (val.length >= len);
 const isNumber = val => !isNaN(+val);
 const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+
+
 
 
 
@@ -182,6 +185,7 @@ class Contact extends Component {
                                             required,
                                             validEmail
                                         }}
+
                                     />
                                     <Errors
                                         className="text-danger"
@@ -193,43 +197,6 @@ class Contact extends Component {
                                             validEmail: 'Invalid email address'
                                         }}
                                     />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Col md={{ size: 4, offset: 2 }}>
-                                    <div className="form-check">
-                                        <Label check>
-                                            <Control.checkbox
-                                                model=".agree"
-                                                name="agree"
-                                                className="form-check-input"
-                                            /> {' '}
-                                            <strong>May we contact you?</strong>
-                                        </Label>
-                                    </div>
-                                </Col>
-                                <Col md={4}>
-                                    <Control.select model=".contactType" name="contactType"
-                                        className="form-control">
-                                        <option>By Phone</option>
-                                        <option>By Email</option>
-                                    </Control.select>
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Label htmlFor="feedback" md={2}>Your Feedback</Label>
-                                <Col md={10}>
-                                    <Control.textarea model=".feedback" id="feedback" name="feedback"
-                                        rows="12"
-                                        className="form-control"
-                                    />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Col md={{ size: 10, offset: 2 }}>
-                                    <Button type="submit" color="primary">
-                                        Send Feedback
-                                    </Button>
                                 </Col>
                             </Row>
                         </LocalForm>
