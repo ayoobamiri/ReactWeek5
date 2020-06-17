@@ -4,6 +4,8 @@ import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem, Button, 
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
+
 
 
 
@@ -15,7 +17,7 @@ function RenderCampsite({ campsite }) {
     return (
         <div className="col-md-5 m-1">
             <Card>
-                <CardImg top src={campsite.image} alt={campsite.name} />
+                <CardImg top src={baseUrl + campsite.image} alt={campsite.name} />
                 <CardBody>
                     <CardText>{campsite.description}</CardText>
                 </CardBody>
@@ -23,7 +25,7 @@ function RenderCampsite({ campsite }) {
         </div>
     )
 }
-function RenderComments({comments, addComment, campsiteId}) {
+function RenderComments({ comments, addComment, campsiteId }) {
     if (comments) {
         return (
             <div className="col-md-5 m-1">
@@ -149,7 +151,7 @@ function CampsiteInfo(props) {
     if (props.isLoading) {
         return (
             <div className="container">
-                <div className="row">            
+                <div className="row">
                     <Loading />
                 </div>
             </div>
@@ -158,14 +160,14 @@ function CampsiteInfo(props) {
     if (props.errMess) {
         return (
             <div className="container">
-                <div className="row"> 
+                <div className="row">
                     <div className="col">
                         <h4>{props.campsites.errMess}</h4>
                     </div>
                 </div>
             </div>
         );
-    } 
+    }
 
     if (props.campsite) {
         return (
@@ -182,7 +184,7 @@ function CampsiteInfo(props) {
                 </div>
                 <div className="row">
                     <RenderCampsite campsite={props.campsite} />
-                    <RenderComments 
+                    <RenderComments
                         comments={props.comments}
                         addComment={props.addComment}
                         campsiteId={props.campsite.id}
